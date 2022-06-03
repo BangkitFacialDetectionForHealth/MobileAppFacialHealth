@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.view.home
+package com.example.lastprojectbangkit.home
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator

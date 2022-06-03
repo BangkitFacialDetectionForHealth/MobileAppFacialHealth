@@ -9,14 +9,13 @@
 
     <ImageView
         android:id="@+id/iv_regist"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="280dp"
+        android:layout_height="280dp"
         app:layout_constraintBottom_toTopOf="@+id/guidelineHorizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_welcome"
-        tools:ignore="ContentDescription" />
+        app:srcCompat="@drawable/Random_pic5" />
 
     <TextView
         android:id="@+id/titleTextView"
@@ -25,7 +24,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:text="@string/title_welcome_page"
         android:textColor="@color/black"
         android:textSize="20sp"
@@ -42,9 +40,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
         android:text="@string/message_welcome_page"
-        android:textColor="@color/teal_700"
+        android:textColor="@color/black"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,8 +55,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
-        android:alpha="0"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/greenLight"
         android:text="@string/login"
         app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,8 +68,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:alpha="0"
-        android:backgroundTint="@color/teal_700"
+        android:backgroundTint="@color/greenLight"
         android:text="@string/signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guidelineVertical"

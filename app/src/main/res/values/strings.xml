@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">Last Project Bangkit</string>
+    <string name="app_name">Facial Health</string>
+    //Started Fragment
+    <string name="swipe">swipe >></string>
+    <string name="title_menu_1">What is Facial Health App?</string>
+    <string name="title_menu_2">Help all your worries !!</string>
+    <string name="title_menu_3">Simple design with modern style</string>
+    <string name="title_menu_4">How are you curious?</string>
+
+    <string name="desc_menu_1">Applications about find the best handling of facial disease for facial health </string>
+    <string name="desc_menu_2">With the feature we give you, you can explore all facial desease with how to handle it... !!</string>
+    <string name="desc_menu_3">The design is a simplification that is refined to make it easier and more interesting to access</string>
+    <string name="desc_menu_4">" Come on now...."</string>
+    <string name="learn_now">Lets Go...</string>
+    <string name="title_welcome_page">Welcome to the Facial Health App</string>
+    <string name="message_welcome_page">Check your Account or Create a new Account to be able to access the Facial Health application Now!</string>
+    <string name="signup">signUp</string>
+    <string name="login">Login</string>
+    <string name="title_signup_page">Fill Your Data Bellow :D</string>
+    <string name="name">Name</string>
+
+    <string name="message_login_page">Login Now mate !!</string>
+    <string name="error_empty_email">" Invalid Email"</string>
+    <string name="length_character">Password must be more than 6 characters</string>
 </resources>

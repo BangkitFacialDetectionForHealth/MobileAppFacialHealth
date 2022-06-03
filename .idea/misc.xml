@@ -3,6 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.2035" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/drawable/ic_circle_24.xml" value="0.2175" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2175" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/activity_dashboard.xml" value="0.27447916666666666" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/activity_on_boarding.xml" value="0.264" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/fragment_welcome.xml" value="0.2" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/login_fragment.xml" value="0.2328125" />
+        <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Capstone Bangkit 2022/LastProjectBangkit/app/src/main/res/layout/register_fragment.xml" value="0.264" />
         <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Random Shit/LastProjectBangkit/app/src/main/res/layout/activity_dashboard.xml" value="0.27447916666666666" />
         <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Random Shit/LastProjectBangkit/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/Tugas Kampus/Bangkit Dicoding/Random Shit/LastProjectBangkit/app/src/main/res/layout/activity_on_boarding.xml" value="0.7889221556886228" />

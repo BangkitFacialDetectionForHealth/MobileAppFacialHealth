@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.view.home
+package com.example.lastprojectbangkit.home
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -8,8 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.submission2Intermediate.R
-import com.example.submission2Intermediate.databinding.FragmentWelcomeBinding
 
 
 class WelcomeFragment : Fragment() {

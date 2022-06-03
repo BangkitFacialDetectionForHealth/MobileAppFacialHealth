@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="300dp"
         android:layout_marginStart="16dp"
-        android:src="@drawable/image_kurikulum_global"
+        android:src="@drawable/Random_pic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
         android:gravity="center_horizontal"
         android:text="@string/desc_menu_1"
         android:textColor="@color/black"
-        android:textSize="16sp"
+
         app:layout_constraintEnd_toEndOf="@+id/titleMenu1"
         app:layout_constraintStart_toStartOf="@+id/titleMenu1"
         app:layout_constraintTop_toBottomOf="@+id/titleMenu1" />
@@ -51,7 +51,7 @@
         android:id="@+id/logoMenu2"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_belajar_fleksibel"
+        android:src="@drawable/Random_pic2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -90,7 +90,7 @@
         android:id="@+id/logoMenu3"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_code_review"
+        android:src="@drawable/Random_pic3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -129,7 +129,7 @@
         android:id="@+id/logoMenu4"
         android:layout_width="0dp"
         android:layout_height="300dp"
-        android:src="@drawable/image_alumni_terpercaya"
+        android:src="@drawable/Random_pic4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -169,19 +169,19 @@
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="32dp"
-        app:altSrc="@drawable/ic_circle_full_24"
+        app:altSrc="@drawable/ic_circle_24"
         app:layout_constraintEnd_toStartOf="@+id/menu2"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="parent"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/pink" />
+        app:tint="@color/greenLight" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:altSrc="@drawable/ic_circle_full_24"
+        app:altSrc="@drawable/ic_circle_24"
         app:layout_constraintBottom_toBottomOf="@+id/menu1"
         app:layout_constraintEnd_toStartOf="@+id/menu3"
         app:layout_constraintHorizontal_bias="0.5"
@@ -189,13 +189,13 @@
         app:layout_constraintTop_toTopOf="@+id/menu1"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/pink" />
+        app:tint="@color/greenLight" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu3"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        app:altSrc="@drawable/ic_circle_full_24"
+        app:altSrc="@drawable/ic_circle_24"
         app:layout_constraintBottom_toBottomOf="@+id/menu2"
         app:layout_constraintEnd_toStartOf="@+id/menu4"
         app:layout_constraintHorizontal_bias="0.5"
@@ -203,21 +203,21 @@
         app:layout_constraintTop_toTopOf="@+id/menu2"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/pink" />
+        app:tint="@color/greenLight" />
 
     <androidx.constraintlayout.utils.widget.ImageFilterView
         android:id="@+id/menu4"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginEnd="32dp"
-        app:altSrc="@drawable/ic_circle_full_24"
+        app:altSrc="@drawable/ic_circle_24"
         app:layout_constraintBottom_toBottomOf="@+id/menu3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/menu3"
         app:layout_constraintTop_toTopOf="@+id/menu3"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_circle_24"
-        app:tint="@color/pink" />
+        app:tint="@color/greenLight" />
 
     <Button
         android:id="@+id/visit_now"
@@ -225,7 +225,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:alpha="0"
-        android:backgroundTint="@color/teal_200"
+        android:backgroundTint="@color/greenLight"
         android:text="@string/learn_now"
         app:layout_constraintBottom_toTopOf="@+id/menu2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -239,7 +239,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/image_dicoding" />
+        app:srcCompat="@drawable/Logo" />
 
     <TextView
         android:id="@+id/textView8"

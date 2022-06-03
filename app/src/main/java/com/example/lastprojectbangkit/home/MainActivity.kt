@@ -1,11 +1,11 @@
-package com.example.submission2Intermediate.view.home
+package com.example.lastprojectbangkit.home
 
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.submission2Intermediate.R
+import com.example.lastprojectbangkit.R
 
 class MainActivity : AppCompatActivity() {
 

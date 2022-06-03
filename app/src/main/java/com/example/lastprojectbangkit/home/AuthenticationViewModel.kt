@@ -1,14 +1,10 @@
-package com.example.submission2Intermediate.view.home
+package com.example.lastprojectbangkit.home
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.submission2Intermediate.data.Repository
-import com.example.submission2Intermediate.data.network.UserResponse
-import com.example.submission2Intermediate.model.UserModel
-import com.example.submission2Intermediate.utilities.Event
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback

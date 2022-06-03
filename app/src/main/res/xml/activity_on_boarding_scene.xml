@@ -140,12 +140,13 @@
             android:layout_width="0dp"
             android:layout_height="300dp"
             motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintVertical_bias="0.4"
+            motion:layout_constraintVertical_bias="0.406"
             motion:layout_constraintTop_toTopOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="32dp"
-            android:layout_marginEnd="32dp" />
+            android:layout_marginEnd="32dp"
+            motion:layout_constraintHorizontal_bias="0.0" />
         <Constraint
             android:id="@+id/menu1"
             motion:layout_constraintEnd_toStartOf="@+id/menu2"

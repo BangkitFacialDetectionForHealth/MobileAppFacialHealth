@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.view.home
+package com.example.lastprojectbangkit.home
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -11,9 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
-import com.example.submission2Intermediate.R
-import com.example.submission2Intermediate.ViewModelFactory
-import com.example.submission2Intermediate.databinding.RegisterFragmentBinding
 
 class RegisterFragment : Fragment() {
 
