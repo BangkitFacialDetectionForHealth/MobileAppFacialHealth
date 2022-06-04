@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.commit
 import androidx.navigation.fragment.findNavController
+import com.example.lastprojectbangkit.R
+import com.example.lastprojectbangkit.databinding.RegisterFragmentBinding
+import com.example.lastprojectbangkit.view.ViewModelFactory
 
 class RegisterFragment : Fragment() {
 
@@ -32,12 +35,12 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         factory = ViewModelFactory.getInstance(requireActivity())
-        initObserver()
-        setupAction()
+        /*initObserver()
+        setupAction()*/
         playAnimation()
     }
 
-    private fun setupAction(){
+   /* private fun setupAction(){
 
         binding.signupButton.setOnClickListener(){
             val name = binding.nameEditText.text.toString()
@@ -88,7 +91,7 @@ class RegisterFragment : Fragment() {
                 loading(it)
             }
         }
-    }
+    }*/
 
     private fun loading(isLoading: Boolean) {
         if (isLoading) {

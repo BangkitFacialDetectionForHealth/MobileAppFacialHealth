@@ -7,13 +7,16 @@ import android.os.Bundle
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
+import com.example.lastprojectbangkit.home.AuthenticationViewModel
 import com.example.lastprojectbangkit.view.MainActivity
+import com.example.lastprojectbangkit.databinding.ActivityOnBoardingBinding
+import com.example.lastprojectbangkit.view.ViewModelFactory
 
 class OnBoardingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityOnBoardingBinding
     private lateinit var factory: ViewModelFactory
-    private val authenticationViewModel:AuthenticationViewModel by viewModels{factory}
+    private val authenticationViewModel: AuthenticationViewModel by viewModels{factory}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

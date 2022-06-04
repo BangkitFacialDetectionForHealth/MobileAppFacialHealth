@@ -10,10 +10,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import com.example.submission2Intermediate.R
-import com.example.submission2Intermediate.ViewModelFactory
-import com.example.submission2Intermediate.databinding.LoginFragmentBinding
-import com.example.submission2Intermediate.view.dashboard.home.DashboardActivity
+import com.example.lastprojectbangkit.R
+import com.example.lastprojectbangkit.databinding.LoginFragmentBinding
+import com.example.lastprojectbangkit.view.ViewModelFactory
 
 class LoginFragment : Fragment() {
 
@@ -34,12 +33,12 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,savedInstanceState)
         factory = ViewModelFactory.getInstance(requireActivity())
-        setupAction()
-        initObserver()
+        /*setupAction()
+        initObserver()*/
         playAnimation()
     }
 
-    private fun setupAction(){
+    /* private fun setupAction(){
         binding.loginButton.setOnClickListener{
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
@@ -90,7 +89,7 @@ class LoginFragment : Fragment() {
                 loading(it)
             }
         }
-    }
+    }*/
     private fun loading (isLoading: Boolean){
         if (isLoading) {
             binding.progressBar.visibility = View.VISIBLE

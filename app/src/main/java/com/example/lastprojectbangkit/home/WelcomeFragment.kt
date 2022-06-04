@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.example.lastprojectbangkit.R
+import com.example.lastprojectbangkit.databinding.FragmentWelcomeBinding
 
 
 class WelcomeFragment : Fragment() {

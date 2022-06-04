@@ -10,6 +10,10 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.example.lastprojectbangkit.R
+import com.example.lastprojectbangkit.home.AuthenticationViewModel
+import com.example.lastprojectbangkit.view.ViewModelFactory
+
 @SuppressLint("CustomSplashScreen")
 @Suppress("DEPRECATION")
 class SplashActivity : AppCompatActivity() {

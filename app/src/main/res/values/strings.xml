@@ -22,4 +22,9 @@
     <string name="message_login_page">Login Now mate !!</string>
     <string name="error_empty_email">" Invalid Email"</string>
     <string name="length_character">Password must be more than 6 characters</string>
+
+    <string name="logout">Logout</string>
+    <string name="wrong_credential">Wrong username or password</string>
+    <string name="register_success">Register Success please Login</string>
+    <string name="register_field">Registration Failed</string>
 </resources>
