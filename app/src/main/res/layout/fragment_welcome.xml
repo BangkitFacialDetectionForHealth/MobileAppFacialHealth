@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.home.WelcomeFragment">
+    tools:context=".home.WelcomeFragment">
 
     <ImageView
         android:id="@+id/iv_regist"
@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Random_pic5" />
+        app:srcCompat="@drawable/random_pic5" />
 
     <TextView
         android:id="@+id/titleTextView"

@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.utilities
+package com.example.lastprojectbangkit.utilities
 
 import android.app.Application
 import android.content.ContentResolver
@@ -8,7 +8,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Matrix
 import android.net.Uri
 import android.os.Environment
-import com.example.submission2Intermediate.R
+import com.example.lastprojectbangkit.R
 import java.io.*
 import java.text.SimpleDateFormat
 import java.util.*

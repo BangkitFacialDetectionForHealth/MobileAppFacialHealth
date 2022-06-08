@@ -27,4 +27,8 @@
     <string name="wrong_credential">Wrong username or password</string>
     <string name="register_success">Register Success please Login</string>
     <string name="register_field">Registration Failed</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="title_login_page">"Ready to use our App? "</string>
+    <string name="splash">Splash</string>
 </resources>

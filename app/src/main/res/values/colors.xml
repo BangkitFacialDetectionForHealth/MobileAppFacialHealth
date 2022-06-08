@@ -8,4 +8,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="greenLight">#1AA79E</color>
     <color name="greenDark">#1A4B48</color>
+    <color name="grey">#616161</color>
 </resources>

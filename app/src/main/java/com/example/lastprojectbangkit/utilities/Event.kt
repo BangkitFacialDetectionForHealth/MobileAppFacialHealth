@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.utilities
+package com.example.lastprojectbangkit.utilities
 
 open class Event <out T>(private val content : T) {
     var hasBeenHandled = false

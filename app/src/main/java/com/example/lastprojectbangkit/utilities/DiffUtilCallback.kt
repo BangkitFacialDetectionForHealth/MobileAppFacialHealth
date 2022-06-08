@@ -1,4 +1,4 @@
-package com.example.submission2Intermediate.utilities
+package com.example.lastprojectbangkit.utilities
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.submission2Intermediate.model.StoryModel

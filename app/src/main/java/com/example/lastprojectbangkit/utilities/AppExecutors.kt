@@ -1,5 +1,4 @@
-package com.example.submission2Intermediate.utilities
-
+package com.example.lastprojectbangkit.utilities
 import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 
