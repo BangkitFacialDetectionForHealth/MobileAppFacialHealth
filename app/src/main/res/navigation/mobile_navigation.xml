@@ -7,19 +7,16 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.submission2Intermediate.view.dashboard.home.HomeFragment"
+        android:name="com.example.lastprojectbangkit.home.HomeFragment"
         android:label="home_fragment"
         tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_navigation_home_to_settingFragment"
             app:destination="@id/settingFragment" />
-        <action
-            android:id="@+id/action_navigation_home_to_detailFragment"
-            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.example.submission2Intermediate.view.dashboard.profile.ProfileFragment"
+        android:name="com.example.lastprojectbangkit.home.ProfileFragment"
         android:label="profile_fragment"
         tools:layout="@layout/profile_fragment" >
         <action
@@ -28,65 +25,8 @@
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
-        android:name="com.example.submission2Intermediate.view.dashboard.setting.SettingFragment"
+        android:name="com.example.lastprojectbangkit.setting.SettingFragment"
         android:label="setting_fragment"
         tools:layout="@layout/setting_fragment" />
-    <fragment
-        android:id="@+id/navigation_new_story"
-        android:name="com.example.submission2Intermediate.view.dashboard.newstory.NewStoryFragment"
-        android:label="new_story_fragment"
-        tools:layout="@layout/new_story_fragment" >
-        <action
-            android:id="@+id/action_navigation_new_story_to_settingFragment"
-            app:destination="@id/settingFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/detailFragment"
-        android:name="com.example.submission2Intermediate.view.dashboard.home.DetailFragment"
-        android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail">
-        <argument
-            android:name="image"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="detail_name"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="detail_description"
-            app:argType="string"
-            app:nullable="true" />
-    </dialog>
-    <fragment
-        android:id="@+id/navigation_maps"
-        android:name="com.example.submission2Intermediate.view.dashboard.googlemaps.MapsFragment"
-        android:label="maps_fragment"
-        tools:layout="@layout/maps_fragment" >
-        <action
-            android:id="@+id/action_navigation_maps_to_detailMapsFragment2"
-            app:destination="@id/detailMapsFragment" />
-    </fragment>
-    <dialog
-        android:id="@+id/detailMapsFragment"
-        android:name="com.example.submission2Intermediate.view.dashboard.googlemaps.DetailMapsFragment"
-        android:label="fragment_detail_maps"
-        tools:layout="@layout/fragment_detail_maps" >
-        <argument
-            android:name="maps_image"
-            app:argType="string"
-            app:nullable="true"
-            />
-        <argument
-            android:name="maps_name"
-            app:argType="string"
-            app:nullable="true"
-            />
-        <argument
-            android:name="maps_description"
-            app:argType="string"
-            app:nullable="true"
-            />
-    </dialog>
 
 </navigation>

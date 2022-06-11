@@ -1,6 +1,5 @@
 package com.example.lastprojectbangkit.home
 
-import android.media.metrics.Event
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.lastprojectbangkit.data.Repository
 import com.example.lastprojectbangkit.data.model.UserModel
 import com.example.lastprojectbangkit.data.network.UserResponse
+import com.example.lastprojectbangkit.utilities.Event
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback

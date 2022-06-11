@@ -94,10 +94,9 @@ class Repository(
 
     fun uploadStory(
         photo: MultipartBody.Part,
-        description: RequestBody,
         token: String,
         lat: Float? = null,
-        lon: Float? = null): Call<UserResponse> = userStories(token).postUserStory(photo, description, lat, lon)
+        lon: Float? = null): Call<UserResponse> = userStories(token).postUserStory(photo, lat, lon)
 
 
    companion object {

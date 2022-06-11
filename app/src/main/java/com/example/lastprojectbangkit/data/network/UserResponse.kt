@@ -1,8 +1,8 @@
 package com.example.lastprojectbangkit.data.network
 
 
-import com.example.submission2Intermediate.model.StoryModel
-import com.example.submission2Intermediate.model.UserModel
+import com.example.lastprojectbangkit.data.model.StoryModel
+import com.example.lastprojectbangkit.data.model.UserModel
 import com.google.gson.annotations.SerializedName
 
 

@@ -8,8 +8,8 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.activity.viewModels
 import com.example.lastprojectbangkit.home.AuthenticationViewModel
-import com.example.lastprojectbangkit.view.MainActivity
 import com.example.lastprojectbangkit.databinding.ActivityOnBoardingBinding
+import com.example.lastprojectbangkit.home.MainActivity
 import com.example.lastprojectbangkit.view.ViewModelFactory
 
 class OnBoardingActivity : AppCompatActivity() {

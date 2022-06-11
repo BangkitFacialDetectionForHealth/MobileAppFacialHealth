@@ -1,7 +1,8 @@
 package com.example.lastprojectbangkit.utilities
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.submission2Intermediate.model.StoryModel
+import com.example.lastprojectbangkit.data.model.StoryModel
+
 
 class DiffUtilCallback: DiffUtil.ItemCallback<StoryModel>() {
     override fun areItemsTheSame(oldItem: StoryModel, newItem: StoryModel): Boolean {

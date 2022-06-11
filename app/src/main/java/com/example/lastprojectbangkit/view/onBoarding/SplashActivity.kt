@@ -12,6 +12,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.lastprojectbangkit.R
 import com.example.lastprojectbangkit.home.AuthenticationViewModel
+import com.example.lastprojectbangkit.home.DashboardActivity
+import com.example.lastprojectbangkit.home.MainActivity
 import com.example.lastprojectbangkit.view.ViewModelFactory
 
 @SuppressLint("CustomSplashScreen")
@@ -40,7 +42,7 @@ class SplashActivity : AppCompatActivity() {
                 authenticationViewModel.getUserToken().observe(this){ token->
                     if (token.isNullOrEmpty() || token == "not_set_yet"){
                         Handler(Looper.getMainLooper()).postDelayed({
-                            val intent = Intent(this@SplashActivity,MainActivity::class.java)
+                            val intent = Intent(this@SplashActivity, MainActivity::class.java)
                             startActivity(intent)
                             finish()
                         },delayMillis)

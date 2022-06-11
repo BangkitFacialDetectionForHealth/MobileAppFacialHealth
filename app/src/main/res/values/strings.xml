@@ -22,6 +22,7 @@
     <string name="message_login_page">Login Now mate !!</string>
     <string name="error_empty_email">" Invalid Email"</string>
     <string name="length_character">Password must be more than 6 characters</string>
+    <string name="permission_not_granted">Permission not granted</string>
 
     <string name="logout">Logout</string>
     <string name="wrong_credential">Wrong username or password</string>
@@ -31,4 +32,24 @@
     <string name="password">Password</string>
     <string name="title_login_page">"Ready to use our App? "</string>
     <string name="splash">Splash</string>
+    <string name="cd_capture">button to capture</string>
+    <string name="cd_gallery">button to galery</string>
+    <string name="cd_switch_camera">button to switch camera</string>
+    <string name="welcome">Hi, %i$s</string>
+    <string name="gallery">Gallery</string>
+    <string name="greetingTittle">Selamat Datang</string>
+    <string name="greetingDesc">Pilih salah satu tombol dibawah untuk memulai aplikasi</string>
+    <string name="title_profile">profile</string>
+    <string name="title_setting">Setting</string>
+    <string name="setting">setting</string>
+    <string name="set_language">Setting Language</string>
+    <string name="title_home">Home</string>
+    <string name="camera">Camera</string>
+    <string name="error_pick_image">Error pick image</string>
+    <string name="error_showing_camera">Error showing camera</string>
+    <string name="upload_failed">Upload failed</string>
+    <string name="upload_success">Upload success</string>
+    <string name="cd_preview">preview Picture</string>
+    <string name="detecbutton">Detect Now !!</string>
+    <string name="detecting">detecting</string>
 </resources>

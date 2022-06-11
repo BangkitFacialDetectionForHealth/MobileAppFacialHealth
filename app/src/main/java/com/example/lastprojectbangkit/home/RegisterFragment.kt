@@ -35,12 +35,12 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         factory = ViewModelFactory.getInstance(requireActivity())
-        /*initObserver()
-        setupAction()*/
+        initObserver()
+        setupAction()
         playAnimation()
     }
 
-   /* private fun setupAction(){
+   private fun setupAction(){
 
         binding.signupButton.setOnClickListener(){
             val name = binding.nameEditText.text.toString()
@@ -91,7 +91,7 @@ class RegisterFragment : Fragment() {
                 loading(it)
             }
         }
-    }*/
+    }
 
     private fun loading(isLoading: Boolean) {
         if (isLoading) {

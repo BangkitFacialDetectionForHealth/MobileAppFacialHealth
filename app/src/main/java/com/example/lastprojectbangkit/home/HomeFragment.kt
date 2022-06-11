@@ -1,102 +1,179 @@
 package com.example.lastprojectbangkit.home
 
-import android.animation.ObjectAnimator
-import android.os.Build
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.paging.PagingData
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.lastprojectbangkit.R
+import com.example.lastprojectbangkit.camera.CameraActivity
+import com.example.lastprojectbangkit.databinding.HomeFragmentBinding
+import com.example.lastprojectbangkit.utilities.reduceFileImage
+import com.example.lastprojectbangkit.utilities.rotateBitmap
+import com.example.lastprojectbangkit.utilities.uriToFile
 import com.example.lastprojectbangkit.view.ViewModelFactory
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
+
 
 class HomeFragment : Fragment() {
+    private var _homeFragmentBinding: HomeFragmentBinding? = null
+    private val binding get() = _homeFragmentBinding!!
+    private val factory: ViewModelFactory by lazy {
+        ViewModelFactory.getInstance(requireActivity())
+    }
+    private val viewModel: HomeViewModel by activityViewModels { factory }
+    private val dashboardViewModel: DashboardViewModel by activityViewModels { factory }
+    private lateinit var result: Bitmap
+    private var navView: BottomNavigationView? = null
+    private var getFile: File? = null
 
-    private lateinit var factory: ViewModelFactory
-    private val viewModel : HomeViewModel by activityViewModels{factory}
-    private var _homebinding: HomeFragmentBinding? = null
-    private val binding get() = _homebinding!!
-    private var hideNavView = false
-    private lateinit var adapter : ListStoryAdapter
+    companion object {
+        const val CAMERA_X_RESULT = 200
+
+    }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _homebinding = HomeFragmentBinding.inflate(layoutInflater,container,false)
+        _homeFragmentBinding = HomeFragmentBinding.inflate(layoutInflater, container, false)
         return binding.root
-
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setHasOptionsMenu(true)
         super.onViewCreated(view, savedInstanceState)
-        factory = ViewModelFactory.getInstance(requireActivity())
-        binding.refreshLayout.isRefreshing = true
-        binding.refreshLayout.setOnRefreshListener {
-            adapter.refresh()
+        navView = requireActivity().findViewById(R.id.nav_view)
+        Log.d("test", "Nav view: $navView")
+        // factory = ViewModelFactory.getInstance(requireActivity())
+        Log.d("test", "Class: " + requireActivity().toString())
+        binding.previewImage.setOnClickListener {
+            dashboardViewModel._isNavBarVisible.value = false
+            startCameraX()
         }
-        fetchUserStories()
+        binding.cameraButton.setOnClickListener { startCameraX() }
+        binding.galleryButton.setOnClickListener { startGallery() }
+        binding.detecButton.setOnClickListener { uploadStory() }
+        initObserve()
         initAction()
-        val navView = requireActivity().findViewById<View>(R.id.nav_view)
-        if (navView != null) {
-            hideShowBottomNavigation(navView)
-        }
-
-
     }
-    private fun hideShowBottomNavigation(navView: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            binding.rvStory.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
-                val height = (navView.height + 32).toFloat()
 
-                if (!hideNavView && scrollY > oldScrollY) {
-                    hideNavView = true
-                    ObjectAnimator.ofFloat(navView, "translationY", 0f, height).apply {
-                        duration = 200
-                        start()
-                    }
+    private fun initObserve() {
+        viewModel.loading.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let {
+                loading(it)
+            }
+        }
+        viewModel.error.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { error ->
+                if (!error) {
+                    Toast.makeText(activity, getString(R.string.upload_success), Toast.LENGTH_LONG)
+                        .show()
+                    startActivity(Intent(activity, DashboardActivity::class.java))
+                    activity?.finish()
                 }
-
-                if (hideNavView && scrollY < oldScrollY) {
-                    hideNavView = false
-                    ObjectAnimator.ofFloat(navView, "translationY", height, 0f).apply {
-                        duration = 200
-                        start()
-                    }
-                }
+            }
+        }
+        viewModel.message.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { msg ->
+                val message = getString(R.string.upload_failed)
+                Toast.makeText(activity, "$msg: $message", Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    private fun fetchUserStories() {
+    private fun startCameraX() {
+        val intent = Intent(activity, CameraActivity::class.java)
+        launcherIntentCameraX.launch(intent)
+    }
 
-        viewModel.getUserToken().observe(viewLifecycleOwner) {
-            binding.refreshLayout.isRefreshing = true
-            viewModel.getUserStories(it)
-            initRecycler()
-            Log.e("Home", "Token: $it")
+    private fun uploadStory() {
+        if (getFile != null) {
+            val file = reduceFileImage(getFile as File)
 
+            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                "photo",
+                file.name,
+                requestImageFile
+            )
         }
     }
-    private fun initRecycler(){
-        binding.rvStory.layoutManager = LinearLayoutManager(activity)
-        adapter = ListStoryAdapter()
-        viewModel.userStories.observe(viewLifecycleOwner){
-            binding.refreshLayout.isRefreshing = false
-            adapter.submitData(lifecycle,it)
-        }
-        binding.rvStory.adapter = adapter.withLoadStateFooter(
-            footer = LoadingStateListStoryAdapter { adapter.retry() }
-        )
 
+    private fun loading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.detecButton.isEnabled = false
+            binding.tvUploading.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.detecButton.isEnabled = true
+            binding.tvUploading.visibility = View.GONE
+            binding.progressBar.visibility = View.GONE
+        }
     }
-    private fun initAction(){
+
+    private val launcherIntentCameraX = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+        if (it.resultCode == CAMERA_X_RESULT) {
+            val myFile = it.data?.getSerializableExtra("picture") as File
+            val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
+
+            getFile = myFile
+            result = rotateBitmap(
+                BitmapFactory.decodeFile(myFile.path),
+                isBackCamera
+            )
+
+            binding.detecButton.isEnabled = true
+            binding.previewImage.setImageBitmap(result)
+            // Ini pake buat hide
+            // Tidurma dulu nah
+            dashboardViewModel._isNavBarVisible.value = false
+        }
+    }
+
+    private fun startGallery() {
+        val intent = Intent()
+        intent.action = Intent.ACTION_GET_CONTENT
+        intent.type = "image/*"
+        val chooser = Intent.createChooser(intent, "Choose a Picture")
+        launcherIntentGallery.launch(chooser)
+    }
+
+    private val launcherIntentGallery = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == AppCompatActivity.RESULT_OK) {
+            val selectedImg: Uri = result.data?.data as Uri
+
+            val myFile = uriToFile(selectedImg, requireActivity())
+
+            getFile = myFile
+
+            binding.detecButton.isEnabled = true
+            binding.previewImage.setImageURI(selectedImg)
+            dashboardViewModel._isNavBarVisible.value = false
+        }
+    }
+
+    private fun initAction() {
         binding.toolbar.apply {
+
             inflateMenu(R.menu.nav_setting)
             setOnMenuItemClickListener { item ->
                 when (item.itemId) {
@@ -111,11 +188,9 @@ class HomeFragment : Fragment() {
         }
     }
 
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _homebinding = null
-        adapter.submitData(lifecycle, PagingData.empty())
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _homeFragmentBinding = null
+        dashboardViewModel._isNavBarVisible.value = true
     }
-
 }
