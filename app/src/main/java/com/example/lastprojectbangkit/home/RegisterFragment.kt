@@ -35,9 +35,10 @@ class RegisterFragment : Fragment() {
         super.onViewCreated(view,savedInstanceState)
 
         factory = ViewModelFactory.getInstance(requireActivity())
+        playAnimation()
         initObserver()
         setupAction()
-        playAnimation()
+
     }
 
    private fun setupAction(){

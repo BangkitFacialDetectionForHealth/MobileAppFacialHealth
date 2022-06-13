@@ -14,11 +14,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.lastprojectbangkit.R
 import com.example.lastprojectbangkit.camera.CameraActivity
 import com.example.lastprojectbangkit.databinding.HomeFragmentBinding
+import com.example.lastprojectbangkit.setting.SettingViewModel
 import com.example.lastprojectbangkit.utilities.reduceFileImage
 import com.example.lastprojectbangkit.utilities.rotateBitmap
 import com.example.lastprojectbangkit.utilities.uriToFile
@@ -37,7 +37,8 @@ class HomeFragment : Fragment() {
         ViewModelFactory.getInstance(requireActivity())
     }
     private val viewModel: HomeViewModel by activityViewModels { factory }
-    private val dashboardViewModel: DashboardViewModel by activityViewModels { factory }
+    private val authenticationViewModel : AuthenticationViewModel by activityViewModels {factory}
+    private val viewModelSetting: SettingViewModel by activityViewModels{factory}
     private lateinit var result: Bitmap
     private var navView: BottomNavigationView? = null
     private var getFile: File? = null
@@ -58,13 +59,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         navView = requireActivity().findViewById(R.id.nav_view)
-        Log.d("test", "Nav view: $navView")
-        // factory = ViewModelFactory.getInstance(requireActivity())
-        Log.d("test", "Class: " + requireActivity().toString())
-        binding.previewImage.setOnClickListener {
-            dashboardViewModel._isNavBarVisible.value = false
-            startCameraX()
-        }
+        binding.previewImage.setOnClickListener { startCameraX() }
         binding.cameraButton.setOnClickListener { startCameraX() }
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.detecButton.setOnClickListener { uploadStory() }
@@ -94,6 +89,10 @@ class HomeFragment : Fragment() {
                 Toast.makeText(activity, "$msg: $message", Toast.LENGTH_LONG).show()
             }
         }
+
+        viewModelSetting.getUserName().observe(viewLifecycleOwner){username ->
+            binding.greetingText.text = username
+        }
     }
 
     private fun startCameraX() {
@@ -111,6 +110,8 @@ class HomeFragment : Fragment() {
                 file.name,
                 requestImageFile
             )
+
+            startActivity(Intent(activity, ProfileFragment::class.java))
         }
     }
 
@@ -141,9 +142,6 @@ class HomeFragment : Fragment() {
 
             binding.detecButton.isEnabled = true
             binding.previewImage.setImageBitmap(result)
-            // Ini pake buat hide
-            // Tidurma dulu nah
-            dashboardViewModel._isNavBarVisible.value = false
         }
     }
 
@@ -167,7 +165,6 @@ class HomeFragment : Fragment() {
 
             binding.detecButton.isEnabled = true
             binding.previewImage.setImageURI(selectedImg)
-            dashboardViewModel._isNavBarVisible.value = false
         }
     }
 
@@ -191,6 +188,5 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _homeFragmentBinding = null
-        dashboardViewModel._isNavBarVisible.value = true
     }
 }

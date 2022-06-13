@@ -17,11 +17,7 @@ import com.example.lastprojectbangkit.view.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class DashboardActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityDashboardBinding
-    private val factory: ViewModelFactory by lazy {
-        ViewModelFactory.getInstance(this)
-    }
-    private val viewModel: DashboardViewModel by viewModels { factory }
+    private lateinit var binding : ActivityDashboardBinding
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -40,22 +36,15 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun allPermissionsGranted() = REQUIRED_PERMISSIONS.all {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.lifecycleOwner = this
-        binding.viewModel = viewModel
 
-        viewModel.isNavBarVisible.observe(this) {
-            Log.d("test", "state: $it")
-        }
 
         val navView: BottomNavigationView = binding.navView
         supportActionBar?.hide()
@@ -68,10 +57,11 @@ class DashboardActivity : AppCompatActivity() {
             )
         }
 
+
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         navView.setupWithNavController(navController)
-    }
 
+    }
     companion object {
         private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.CAMERA)
         private const val REQUEST_CODE_PERMISSIONS = 10

@@ -9,7 +9,6 @@ import com.example.lastprojectbangkit.data.Repository
 import com.example.lastprojectbangkit.data.UserPreference
 import com.example.lastprojectbangkit.data.network.ApiConfig
 import com.example.lastprojectbangkit.home.AuthenticationViewModel
-import com.example.lastprojectbangkit.home.DashboardViewModel
 import com.example.lastprojectbangkit.home.HomeViewModel
 import com.example.lastprojectbangkit.setting.SettingViewModel
 
@@ -22,7 +21,6 @@ class ViewModelFactory private constructor(private val userRepository: Repositor
     ViewModelProvider.NewInstanceFactory() {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
-            modelClass.isAssignableFrom(DashboardViewModel::class.java) -> DashboardViewModel() as T
             modelClass.isAssignableFrom(AuthenticationViewModel::class.java) -> AuthenticationViewModel(
                 userRepository
             ) as T

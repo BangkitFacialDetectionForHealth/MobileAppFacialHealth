@@ -28,13 +28,11 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:paddingTop="10dp"
+        android:layout_width="410dp"
+        android:layout_height="677dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
@@ -42,14 +40,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
             <TextView
                 android:id="@+id/greetingText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="end"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="76dp"
                 android:text="@string/welcome"
-                android:layout_gravity="end"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -94,6 +93,7 @@
                 app:layout_constraintTop_toBottomOf="@id/greetingDesc"
                 app:layout_constraintVertical_bias="0.0"
                 tools:ignore="ImageContrastCheck" />
+
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
@@ -101,10 +101,10 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
                 android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@+id/preview_image"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/preview_image">
 
                 <Button
                     android:id="@+id/cameraButton"
@@ -124,10 +124,9 @@
                     android:layout_weight="1"
                     android:backgroundTint="@color/greenLight"
                     android:drawableTop="@drawable/ic_baseline_image_search_24"
-                    android:text="@string/gallery"/>
+                    android:text="@string/gallery" />
 
             </LinearLayout>
-
 
             <Button
                 android:id="@+id/detecButton"
@@ -135,10 +134,11 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:layout_marginStart="8dp"
-                android:enabled="false"
                 android:backgroundTint="@color/greenLight"
+                android:enabled="false"
                 android:text="@string/detecbutton"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
+
 
             <ProgressBar
                 android:id="@+id/progress_bar"
@@ -158,11 +158,11 @@
                 android:text="@string/detecting"
                 android:textColor="@color/white"
                 android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintBottom_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
-
         </LinearLayout>
     </ScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

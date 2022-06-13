@@ -9,12 +9,12 @@ import androidx.room.withTransaction
 import com.example.lastprojectbangkit.data.model.StoryModel
 import com.example.lastprojectbangkit.data.network.ApiService
 import com.example.lastprojectbangkit.database.RemoteKeys
-import com.example.lastprojectbangkit.database.UserStoryDatabase
+import com.example.lastprojectbangkit.database.UserScanDatabase
 import retrofit2.awaitResponse
 
 @OptIn(ExperimentalPagingApi::class)
 class StoryRemoteMediator(
-    private val userStoryDatabase: UserStoryDatabase,
+    private val userScanDatabase: UserScanDatabase,
     private val apiService: ApiService
 ) : RemoteMediator<Int, StoryModel>() {
 
@@ -47,10 +47,10 @@ class StoryRemoteMediator(
 
             Log.i("StoryRemoteMediator", "inserting: $response")
 
-            userStoryDatabase.withTransaction {
+            userScanDatabase.withTransaction {
                 if (loadType == LoadType.REFRESH) {
-                    userStoryDatabase.remoteKeysDao().deleteAllRemoteKeys()
-                    userStoryDatabase.userStoryDao().deleteAllUserStories()
+                    userScanDatabase.remoteKeysDao().deleteAllRemoteKeys()
+                    userScanDatabase.userStoryDao().deleteAllUserStories()
                 }
 
                 val nextKey = if (endOfPaginationReached) null else page + 1
@@ -62,9 +62,9 @@ class StoryRemoteMediator(
                         nextKey = nextKey
                     )
                 }
-                userStoryDatabase.remoteKeysDao().insertAll(keys)
+                userScanDatabase.remoteKeysDao().insertAll(keys)
 
-                userStoryDatabase.userStoryDao().insertUserStory(responseData)
+                userScanDatabase.userStoryDao().insertUserStory(responseData)
             }
             MediatorResult.Success(endOfPaginationReached)
         } catch (e: Exception) {
@@ -79,13 +79,13 @@ class StoryRemoteMediator(
 
     private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, StoryModel>) : RemoteKeys? {
         return state.pages.lastOrNull { it.data.isNotEmpty() }?.data?.lastOrNull()?.let { data ->
-            userStoryDatabase.remoteKeysDao().getRemoteKey(data.id)
+            userScanDatabase.remoteKeysDao().getRemoteKey(data.id)
         }
     }
 
     private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, StoryModel>) : RemoteKeys? {
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()?.let { data ->
-            userStoryDatabase.remoteKeysDao().getRemoteKey(data.id)
+            userScanDatabase.remoteKeysDao().getRemoteKey(data.id)
         }
     }
 
@@ -94,7 +94,7 @@ class StoryRemoteMediator(
     ): RemoteKeys? {
         return state.anchorPosition?.let { position ->
             state.closestItemToPosition(position)?.id?.let { id ->
-                userStoryDatabase.remoteKeysDao().getRemoteKey(id)
+                userScanDatabase.remoteKeysDao().getRemoteKey(id)
             }
         }
     }

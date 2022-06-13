@@ -2,17 +2,13 @@ package com.example.lastprojectbangkit.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData
-import androidx.paging.*
-import com.example.lastprojectbangkit.data.model.StoryModel
 import com.example.lastprojectbangkit.data.network.ApiInterceptor
 import com.example.lastprojectbangkit.data.network.ApiService
 import com.example.lastprojectbangkit.data.network.UserResponse
-import com.example.lastprojectbangkit.data.paging.StoryRemoteMediator
-import com.example.lastprojectbangkit.database.UserStoryDatabase
+import com.example.lastprojectbangkit.database.UserScanDatabase
 import com.example.lastprojectbangkit.utilities.AppExecutors
 import okhttp3.MultipartBody
 import okhttp3.OkHttpClient
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -20,7 +16,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class Repository(
     private val pref: UserPreference,
     private val apiService: ApiService,
-    private val userStoryDatabase: UserStoryDatabase,
+    private val userScanDatabase: UserScanDatabase,
     val appExecutors: AppExecutors
 ) {
 
@@ -52,10 +48,6 @@ class Repository(
         return retrofit.create(ApiService::class.java)
     }
 
-    fun getUserStoryMapView(token: String) : Call<UserResponse> {
-        return userStories(token).getUserStories(1)
-    }
-
 
     fun userLogin(email: String, password: String) : Call<UserResponse>  {
         val user: Map<String, String> = mapOf(
@@ -76,22 +68,6 @@ class Repository(
         return apiService.userRegister(user)
     }
 
-    @OptIn(ExperimentalPagingApi::class)
-    fun getUserStoriesList(token: String) : LiveData <PagingData<StoryModel>>{
-        return Pager(
-            config = PagingConfig(
-                pageSize = 10,
-                enablePlaceholders = false
-            ),
-            remoteMediator = StoryRemoteMediator(
-                userStoryDatabase, apiService = userStories(token)
-
-            ),
-            pagingSourceFactory = {userStoryDatabase.userStoryDao().getAllUserStories()}
-        ).liveData
-
-    }
-
     fun uploadStory(
         photo: MultipartBody.Part,
         token: String,
@@ -107,11 +83,11 @@ class Repository(
         fun getInstance(
             pref: UserPreference,
             apiService: ApiService,
-            userStoryDatabase: UserStoryDatabase,
+            userScanDatabase: UserScanDatabase,
             appExecutors: AppExecutors,
         ) : Repository =
             instance ?: synchronized(this) {
-                instance ?: Repository(pref,apiService,userStoryDatabase,appExecutors)
+                instance ?: Repository(pref,apiService,userScanDatabase,appExecutors)
             }.also { instance = it }
     }
 

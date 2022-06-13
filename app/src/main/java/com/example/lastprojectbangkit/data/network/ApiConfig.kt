@@ -5,7 +5,7 @@ import android.util.Log
 import com.example.lastprojectbangkit.BuildConfig
 import com.example.lastprojectbangkit.data.Repository
 import com.example.lastprojectbangkit.data.UserPreference
-import com.example.lastprojectbangkit.database.UserStoryDatabase
+import com.example.lastprojectbangkit.database.UserScanDatabase
 import com.example.lastprojectbangkit.utilities.AppExecutors
 import com.example.lastprojectbangkit.view.dataStore
 import okhttp3.OkHttpClient
@@ -36,7 +36,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
 
-            val userStoryDatabase = UserStoryDatabase.getDatabase(context)
+            val userStoryDatabase = UserScanDatabase.getDatabase(context)
 
             Log.e("ApiConfig", "Client: $client")
             val apiService = getApiService(client)

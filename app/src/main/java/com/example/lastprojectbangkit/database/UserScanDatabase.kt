@@ -11,21 +11,21 @@ import com.example.lastprojectbangkit.data.model.StoryModel
     [StoryModel::class, RemoteKeys::class],
     version = 1,
     exportSchema = false)
-abstract class UserStoryDatabase : RoomDatabase() {
+abstract class UserScanDatabase : RoomDatabase() {
 
     abstract fun userStoryDao(): UserStoryDao
     abstract fun remoteKeysDao(): RemoteKeysDao
 
     companion object {
         @Volatile
-        private var INSTANCE: UserStoryDatabase? = null
+        private var INSTANCE: UserScanDatabase? = null
 
         @JvmStatic
-        fun getDatabase(context: Context): UserStoryDatabase {
+        fun getDatabase(context: Context): UserScanDatabase {
             return INSTANCE ?: synchronized(this) {
                 INSTANCE ?: Room.databaseBuilder(
                     context.applicationContext,
-                    UserStoryDatabase::class.java, "user_story_database"
+                    UserScanDatabase::class.java, "user_story_database"
                 )
                     .fallbackToDestructiveMigration()
                     .build()

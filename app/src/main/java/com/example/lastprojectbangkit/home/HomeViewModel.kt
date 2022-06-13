@@ -8,7 +8,6 @@ import com.example.lastprojectbangkit.data.Repository
 import com.example.lastprojectbangkit.data.network.UserResponse
 import com.example.lastprojectbangkit.utilities.Event
 import okhttp3.MultipartBody
-import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,6 +22,7 @@ class HomeViewModel(private val userRepository: Repository) : ViewModel() {
     private var _loading = MutableLiveData<Event<Boolean>>()
     val loading: LiveData<Event<Boolean>> = _loading
 
+    var myLocation = MutableLiveData<Location?>()
 
     fun uploadStory(photo: MultipartBody.Part, token: String, lat: Float? = null, lon: Float? = null) {
         _loading.value = Event(true)

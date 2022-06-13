@@ -52,4 +52,6 @@
     <string name="cd_preview">preview Picture</string>
     <string name="detecbutton">Detect Now !!</string>
     <string name="detecting">detecting</string>
+    <string name="detail">DetailI Image</string>
+    <string name="title_description">Tittle Description</string>
 </resources>
